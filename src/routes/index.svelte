@@ -15,7 +15,6 @@
 	import { PlusIconSolid } from '@codewithshin/svelte-heroicons';
 	import Todos from '../components/composition/Todos.svelte';
 	import AppBar from '../components/composition/AppBar.svelte';
-	import { is_empty } from 'svelte/internal';
 
 	export let session;
 	export let data;

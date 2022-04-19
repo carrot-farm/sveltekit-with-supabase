@@ -10,8 +10,8 @@ export async function post({ request }) {
 
 	if (error) {
 		return {
-			status: error.status,
-			body: { message: error.message }
+			status: 400,
+			body: { error }
 		};
 	}
 

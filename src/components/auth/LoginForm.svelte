@@ -7,14 +7,18 @@
 	export let password = undefined;
 	export let passwordConfirm = undefined;
 	export let passwordConfirmError = undefined;
-	// export let onSubmit = undefined;
+	export let onSubmit = undefined;
 
 	$: title = type === 'sign-up' ? '회원가입' : '로그인';
 	$: buttonText = type === 'sign-up' ? '회원가입' : '로그인';
 </script>
 
 <div class="flex flex-col items-center justify-center">
-	<form class="form border shadow-sm rounded-md w-80 p-5 " {...$$restProps}>
+	<form
+		class="form border shadow-sm rounded-md w-80 p-5 "
+		{...$$restProps}
+		on:submit={onSubmit}
+	>
 		<h1 class="font-bold text-2xl mb-5">{title}</h1>
 		<Input
 			label="이메일"
