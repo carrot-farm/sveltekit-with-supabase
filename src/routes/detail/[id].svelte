@@ -12,10 +12,11 @@
 </script>
 
 <script>
+	import { browser } from '$app/env';
 	import AppBar from '../../components/composition/AppBar.svelte';
 	export let data;
 	export let error;
-	if (error) {
+	if (browser && error) {
 		alert(error.message);
 	}
 </script>

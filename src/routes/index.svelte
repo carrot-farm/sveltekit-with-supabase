@@ -11,6 +11,7 @@
 </script>
 
 <script>
+	import { browser } from '$app/env';
 	import { supabase } from '../lib/supabaseClient';
 	import { PlusIconSolid } from '@codewithshin/svelte-heroicons';
 	import Todos from '../components/composition/Todos.svelte';
@@ -21,7 +22,7 @@
 	export let error;
 	// console.log(data);
 
-	if (error) {
+	if (browser && error) {
 		alert(error.message);
 	}
 
@@ -34,7 +35,7 @@
 			.update({ done: !item.done })
 			.eq('id', item.id);
 
-		if (error) {
+		if (browser && error) {
 			alert(error.message);
 		}
 	}
@@ -43,7 +44,7 @@
 	async function handleRemoveClick(item) {
 		data = data.filter((a) => a.id !== item.id);
 		const { error } = await supabase.from('todos').delete().eq('id', item.id);
-		if (error) {
+		if (browser && error) {
 			alert(error.message);
 		}
 	}
